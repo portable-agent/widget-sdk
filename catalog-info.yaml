@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+    name: widget-sdk
+    description: Общее ядро карточек Portable Agent для Web и мессенджеров
+    annotations:
+        github.com/project-slug: portable-agent/widget-sdk
+        backstage.io/techdocs-ref: dir:.
+        portable-agent.dev/api-contract: action-confirmation@2.3.0
+spec:
+    type: library
+    lifecycle: experimental
+    owner: group:default/frontend
+    system: portable-agent

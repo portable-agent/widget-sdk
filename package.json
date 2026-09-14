@@ -1,0 +1,51 @@
+{
+    "name": "@portable-agent/widget-sdk",
+    "version": "0.1.0",
+    "description": "Проверка карточек Portable Agent для Web и мессенджеров",
+    "type": "module",
+    "license": "Apache-2.0",
+    "packageManager": "pnpm@11.19.0",
+    "engines": {
+        "node": ">=24"
+    },
+    "files": [
+        "dist",
+        "contracts",
+        "README.md",
+        "LICENSE"
+    ],
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "generate": "json2ts -i contracts/action-confirmation.schema.json -o src/generated/action-confirmation.ts && prettier --write src/generated/action-confirmation.ts",
+        "check:generated": "pnpm generate && git diff --exit-code -- src/generated/action-confirmation.ts",
+        "lint": "pnpm check:generated && eslint . && prettier --check .",
+        "format": "prettier --write .",
+        "test": "pnpm generate && vitest run --coverage",
+        "typecheck": "pnpm generate && tsc --noEmit -p tsconfig.test.json",
+        "build": "pnpm generate && tsc -p tsconfig.json",
+        "pack:check": "pnpm build && pnpm pack --pack-destination dist/package",
+        "prepack": "pnpm build"
+    },
+    "dependencies": {
+        "ajv": "8.20.0",
+        "ajv-formats": "3.0.1"
+    },
+    "devDependencies": {
+        "@eslint/js": "10.0.1",
+        "@types/node": "26.5.0",
+        "@vitest/coverage-v8": "5.0.0",
+        "eslint": "10.10.0",
+        "json-schema-to-typescript": "16.0.0",
+        "prettier": "3.9.6",
+        "typescript": "5.9.3",
+        "typescript-eslint": "8.70.0",
+        "vitest": "5.0.0"
+    }
+}

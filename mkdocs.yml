@@ -1,0 +1,21 @@
+site_name: Widget SDK
+site_description: Документация общего ядра карточек Portable Agent
+docs_dir: docs
+strict: true
+theme:
+    name: material
+    language: ru
+nav:
+    - Главная: index.md
+    - Архитектура: architecture.md
+    - Разработка: development.md
+    - Runbook: runbook.md
+    - Решения:
+          - Независимое ядро: decisions/0001-renderer-neutral-core.md
+markdown_extensions:
+    - admonition
+    - pymdownx.superfences:
+          custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_code_format

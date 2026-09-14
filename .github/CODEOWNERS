@@ -1,0 +1,4 @@
+* @portable-agent/maintainers
+
+/src/ @portable-agent/frontend @portable-agent/maintainers
+/contracts/ @portable-agent/backend @portable-agent/maintainers

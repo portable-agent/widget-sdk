@@ -8,9 +8,10 @@ SDK не рисует конкретный UI. Он проверяет неиз�
 
 ## Что уже работает
 
-- JSON Schema закреплена на release `portable-agent/contracts v2.3.0`;
+- JSON Schema обновлены до `portable-agent/contracts v4.0.0`;
 - TypeScript type создаётся из схемы, а не пишется вручную;
 - `parseCard` отклоняет неизвестные поля и неверный hash;
+- `parseConnection` проверяет общий виджет подключения и HTTPS-ссылку;
 - `makeDecision` создаёт `CONFIRM` или `CANCEL` только для доступной кнопки;
 - тесты, lint, typecheck, package build и документация проверяются в CI.
 
@@ -26,6 +27,13 @@ const command = makeDecision(card, 'CONFIRM');
 ```
 
 SDK не хранит token и не вызывает Action Service напрямую. Это делает backend-адаптер канала.
+
+```typescript
+import { parseConnection } from '@portable-agent/widget-sdk';
+
+const connection = parseConnection(message.reply.card);
+renderer.showLink(connection.button.label, connection.button.url);
+```
 
 ## Проверка
 

@@ -8,7 +8,7 @@ SDK не рисует конкретный UI. Он проверяет неиз�
 
 ## Что уже работает
 
-- JSON Schema обновлены до `portable-agent/contracts v3.1.0`;
+- JSON Schema обновлены до `portable-agent/contracts v4.0.0`;
 - TypeScript type создаётся из схемы, а не пишется вручную;
 - `parseCard` отклоняет неизвестные поля и неверный hash;
 - `parseConnection` проверяет общий виджет подключения и HTTPS-ссылку;

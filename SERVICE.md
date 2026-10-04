@@ -22,5 +22,5 @@ SDK не вызывает Action Service напрямую и не открыва
 
 ## Контракт
 
-Текущий снимок: `portable-agent/contracts v3.1.0`. Источник и правило обновления записаны в
+Текущий снимок: `portable-agent/contracts v4.0.0`. Источник и правило обновления записаны в
 `contracts/SOURCE.md`.

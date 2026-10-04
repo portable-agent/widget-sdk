@@ -6,7 +6,7 @@ metadata:
     annotations:
         github.com/project-slug: portable-agent/widget-sdk
         backstage.io/techdocs-ref: dir:.
-        portable-agent.dev/api-contract: widgets@3.1.0
+        portable-agent.dev/api-contract: widgets@4.0.0
 spec:
     type: library
     lifecycle: experimental

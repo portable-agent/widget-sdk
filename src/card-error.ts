@@ -1,9 +1,8 @@
-export class CardError extends Error {
-    readonly issues: readonly string[];
+import { WidgetError } from './widget-error.js';
 
+export class CardError extends WidgetError {
     constructor(issues: readonly string[]) {
-        super('Card does not match the public contract');
+        super(issues);
         this.name = 'CardError';
-        this.issues = issues;
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "@portable-agent/widget-sdk",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Проверка карточек Portable Agent для Web и мессенджеров",
     "type": "module",
     "license": "Apache-2.0",
@@ -23,14 +23,15 @@
         }
     },
     "scripts": {
-        "generate": "json2ts -i contracts/action-confirmation.schema.json -o src/generated/action-confirmation.ts && prettier --write src/generated/action-confirmation.ts",
-        "check:generated": "pnpm generate && git diff --exit-code -- src/generated/action-confirmation.ts",
+        "generate": "json2ts -i contracts/action-confirmation.schema.json -o src/generated/action-confirmation.ts && json2ts -i contracts/connection-widget.schema.json -o src/generated/connection-widget.ts && prettier --write src/generated/*.ts",
+        "clean": "node scripts/clean.mjs",
+        "check:generated": "pnpm generate && git diff --exit-code -- src/generated",
         "lint": "pnpm check:generated && eslint . && prettier --check .",
         "format": "prettier --write .",
         "test": "pnpm generate && vitest run --coverage",
         "typecheck": "pnpm generate && tsc --noEmit -p tsconfig.test.json",
-        "build": "pnpm generate && tsc -p tsconfig.json",
-        "pack:check": "pnpm build && pnpm pack --pack-destination dist/package",
+        "build": "pnpm clean && pnpm generate && tsc -p tsconfig.json",
+        "pack:check": "pnpm build && pnpm pack --pack-destination .pack",
         "prepack": "pnpm build"
     },
     "dependencies": {

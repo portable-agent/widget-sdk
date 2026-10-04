@@ -23,13 +23,13 @@ $catalogText = Get-Content -LiteralPath "catalog-info.yaml" -Raw
 if ($catalogText -notmatch "backstage\.io/techdocs-ref:\s*dir:\.") {
     throw "В catalog-info.yaml нет backstage.io/techdocs-ref: dir:."
 }
-if ($catalogText -notmatch "action-confirmation@2\.3\.0") {
-    throw "В catalog-info.yaml должна быть закреплена версия контракта 2.3.0."
+if ($catalogText -notmatch "widgets@3\.1\.0") {
+    throw "В catalog-info.yaml должна быть закреплена версия контрактов 3.1.0."
 }
 
 $sourceText = Get-Content -LiteralPath "contracts/SOURCE.md" -Raw
-if ($sourceText -notmatch "v2\.3\.0") {
-    throw "contracts/SOURCE.md не содержит release v2.3.0."
+if ($sourceText -notmatch "v3\.1\.0") {
+    throw "contracts/SOURCE.md не содержит target release v3.1.0."
 }
 
 $serviceText = Get-Content -LiteralPath "SERVICE.md" -Raw
